@@ -1,6 +1,4 @@
 package com.example.translate.classes
-//ARSALAN SHAKIL
-//1910097
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             //open Main activity
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }, SPLASH_TIME) //display this activity for some amount of time
     }

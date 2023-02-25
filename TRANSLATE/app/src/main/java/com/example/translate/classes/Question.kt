@@ -1,8 +1,5 @@
 package com.example.translate.classes
 
-//ARSALAN SHAKIL
-//1910097
-
 //data class the object Constants
 data class Question(
     val id: Int,

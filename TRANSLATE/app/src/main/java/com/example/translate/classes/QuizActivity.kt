@@ -1,8 +1,4 @@
 package com.example.translate.classes
-//ARSALAN SHAKIL
-//1910097
-
-
 
 import android.content.Intent
 import android.graphics.Color
@@ -14,6 +10,7 @@ import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
 import androidx.core.content.ContextCompat
 import com.example.translate.R
 import kotlinx.android.synthetic.main.activity_quiz.*
@@ -39,12 +36,6 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_quiz)
 
 
-        //actionbar
-        val actionbar = supportActionBar
-        //set actionbar title
-        actionbar!!.title = "Take Quiz"
-        //set back button
-        actionbar.setDisplayHomeAsUpEnabled(true)
 
         //put the question and options from the object in globalQuestionList
         globalQuestionList = Constants.getQuestions()
@@ -92,8 +83,6 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
         question_option_two.text = question.optionTwo   //set the text to option two
         question_option_three.text = question.optionTree    //set the text to option three
         question_option_four.text = question.optionFour     //set the text to option three
-
-
 
     }
     //the default option when the question is opened

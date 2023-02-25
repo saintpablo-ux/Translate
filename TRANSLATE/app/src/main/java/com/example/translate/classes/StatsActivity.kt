@@ -1,5 +1,3 @@
-//ARSALAN SHAKIL
-//1910097
 
 package com.example.translate.classes
 
@@ -42,12 +40,7 @@ class StatsActivity : AppCompatActivity() {
 
         //put StatsViewModel into the mStatsViewModel variable
         mStatsViewModel = ViewModelProvider(this).get(StatsActivityViewModel::class.java)
-        //actionbar
-        val actionbar = supportActionBar
-        //set actionbar title
-        actionbar!!.title = "Check Progress"
-        //set back button
-        actionbar.setDisplayHomeAsUpEnabled(true)
+
 
         //set the RecyclerView to linear layout
         val adapter = StatsListAdapter()

@@ -1,6 +1,3 @@
-//ARSALAN SHAKIL
-//1910097
-
 package com.example.translate.database
 
 

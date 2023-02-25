@@ -1,73 +1,75 @@
 package com.example.translate.classes
 
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import com.example.translate.R
+import com.google.firebase.auth.FirebaseAuth
 
-//ARSALAN SHAKIL
-//1910097
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        clickListener()
 
-        //when the word card pressed
-        findViewById<CardView>(R.id.word_card).setOnClickListener {
-            onClickWords(it) //goto function onClickWord
-        }
-
-        //when the quiz card pressed
-        findViewById<CardView>(R.id.quiz_card).setOnClickListener {
-            onClickQuiz(it) //goto function onClickQuiz
-        }
-        //when the stats card pressed
-        findViewById<CardView>(R.id.stats_card).setOnClickListener {
-            onClickStats(it) //goto function onClickStats
-        }
-
-        //when the word button is pressed
-        findViewById<Button>(R.id.word_button).setOnClickListener {
-            onClickWords(it) //goto function onClickWord
-        }
-
-        //when the quiz button is pressed
-        findViewById<Button>(R.id.quiz_button).setOnClickListener {
-            onClickQuiz(it) //goto function onClickQuiz
-        }
-
-        //when the stats button pressed
-        findViewById<Button>(R.id.stats_button).setOnClickListener {
-            onClickStats(it)
-        }
-
-
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
     }
 
-    //Open the Quiz activity
-    fun onClickQuiz(view: View) {
-        val intent = Intent(this, QuizActivity::class.java)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.getItemId()
+        if (id == R.id.action_logout) {
+            logout()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun logout() {
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(this@MainActivity, SignInActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
+        finish()
+    }
+
+    private fun clickListener() {
+        val finnishActivity = findViewById<CardView>(R.id.cardView)
+        val spanishActivity = findViewById<CardView>(R.id.cardView2)
+        val frenchActivity = findViewById<CardView>(R.id.cardView5)
+
+        finnishActivity.setOnClickListener {
+            openFinnishActivity()
+        }
+        spanishActivity.setOnClickListener {
+            openSpanishActivity()
+        }
+        frenchActivity.setOnClickListener {
+            openFrenchActivity()
+        }
 
     }
 
-    //Open the Stats activity
-    fun onClickStats(view: View) {
-        val intent = Intent(this, StatsActivity::class.java)
-        startActivity(intent)
-
+    private fun openFinnishActivity() {
+        startActivity(Intent(this@MainActivity, FinnishActivity::class.java))
     }
-
-    //Open the Words activity
-    fun onClickWords(view: View) {
-        val intent = Intent(this, WordsActivity::class.java)
-        startActivity(intent)
-
+    private fun openSpanishActivity(){
+        startActivity(Intent(this@MainActivity, SpanishActivity::class.java))
     }
-
-
+    private fun openFrenchActivity(){
+        startActivity(Intent(this@MainActivity, FrenchActivity::class.java))
+    }
 }

@@ -1,6 +1,5 @@
 @file:Suppress("DEPRECATION")
-//ARSALAN SHAKIL
-//1910097
+
 
 package com.example.translate.classes
 
@@ -33,12 +32,7 @@ class WordsActivity : AppCompatActivity() {
         recycler_view_words.setHasFixedSize(true)
         internetNotConnected() //call internetNotConnected function to check internet connection
 
-        //actionbar
-        val actionbar = supportActionBar
-        //set actionbar title
-        actionbar!!.title = "Learn new words daily"
-        //set back button
-        actionbar.setDisplayHomeAsUpEnabled(true)
+
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -81,12 +75,12 @@ class WordsActivity : AppCompatActivity() {
         //get the data from the json file
         private fun jsonResult(jsonString: String?) {
             val jsonArray = JSONArray(jsonString)
-            val list = ArrayList<Word>()
+            val list = ArrayList<WordFin>()
             var i = 0
             while (i < jsonArray.length()) {
                 val jsonObject = jsonArray.getJSONObject(i)
                 list.add(
-                    Word(
+                    WordFin(
                         //get the words from the json file
                         jsonObject.getString("word"),
                         //get the meanings from the json file

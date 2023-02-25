@@ -1,5 +1,3 @@
-//ARSALAN SHAKIL
-//1910097
 package com.example.translate.classes
 
 
@@ -13,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.translate.R
 import kotlinx.android.synthetic.main.words_list.view.*
 
-class WordListAdapter(val context: Context, private val wordList: ArrayList<Word>) :
+class WordListAdapter(val context: Context, private val wordList: ArrayList<WordFin>) :
     RecyclerView.Adapter<WordListAdapter.WordListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordListViewHolder {

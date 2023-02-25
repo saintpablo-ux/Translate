@@ -1,6 +1,5 @@
 package com.example.translate.classes
-//ARSALAN SHAKIL
-//1910097
+
 
 
 
